@@ -30,12 +30,12 @@ func (r *RoomDI) SwitchOnTwo() {
 }
 
 func main() {
-	myRoom := NewRoom(new(light.Incandescent), new(light.LedLight)) // ここがDI
+
+	lightOne := new(light.Incandescent) // 注入するオブジェクト
+	lightTwo := new(light.LedLight)     // 注入するオブジェクト
+
+	myRoom := NewRoom(lightOne, lightTwo) // ここがDI
 
 	myRoom.SwitchOnOne()
 	myRoom.SwitchOnTwo()
-
-	myRoom.LightOne = new(light.Incandescent)
-	myRoom.LightTwo = new(light.LedLight)
-
 }
